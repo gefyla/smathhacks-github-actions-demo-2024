@@ -14,7 +14,6 @@ on:  # yamllint disable-line rule:truthy
         default: false
         description: >-
           I wonder what enabling this does...
-
     outputs:
       name-char-length:
         description: Character length of name input.
