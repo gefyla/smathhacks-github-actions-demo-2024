@@ -57,16 +57,6 @@ A side piece to show how GitHub Actions can:
 
 <!-- AUTO-DOC-INPUT:END -->
 
-#### Outputs
-
-<!-- AUTO-DOC-OUTPUT:START - Do not remove or modify this section -->
-
-|      OUTPUT      |           DESCRIPTION           |
-|------------------|---------------------------------|
-| name-char-length | Character length of name input. |
-
-<!-- AUTO-DOC-OUTPUT:END -->
-
 ### Lint Workflow
 
 A workflow that makes sure the code is clean.
