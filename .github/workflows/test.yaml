@@ -1,0 +1,43 @@
+---
+name: Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest coverage
+      - name: Test with pytest
+        run: |
+          coverage run -m pytest -v -s
+      - name: Generate coverage report
+        run: |
+          coverage report -m
+
+  comment-checklist:
+    needs: test
+    env: 
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Comment on PR
+        if: ${{ github.ref != 'refs/heads/main' }}
+        run: |
+          curl -s -H "Authorization: token ${GITHUB_TOKEN}" -X POST ${{ github.event.pull_request.comments_url }} -d "{\"body\":\" # :robot: smathhacks-github-actions-demo-2024 tests are passing\n:four_leaf_clover: If all checks are passing, time to request reviews.\"}"

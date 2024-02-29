@@ -1,0 +1,64 @@
+---
+name: Input -> Output
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: string
+        required: true
+        description: >-
+          Your name.
+      secret-message:
+        type: boolean
+        default: false
+        description: >-
+          I wonder what enabling this does...
+
+    outputs:
+      name-char-length:
+        description: Character length of name input.
+        value: ${{ jobs.input-output-job.outputs }}
+
+env:
+  Color_Off: '\033[0m'
+  Black: '\033[0;30m'
+  Red: '\033[0;31m'
+  Green: '\033[0;32m'
+  Yellow: '\033[0;33m'
+  Cyan: '\033[0;36m'
+  On_Red: '\033[41m'
+  On_Green: '\033[42m'
+  On_Yellow: '\033[43m'
+  On_Cyan: '\033[46m'
+  
+jobs:
+  input-output-job:
+    name: Input -> Output
+    runs-on: ubuntu-latest
+
+    outputs:
+      name-length: ${{ steps.name-parsing.outputs.name-length }}
+
+    steps:
+      - name: Print Name
+        id: name-parsing
+        env:
+          NAME: ${{ inputs.name }}
+        run: |
+          echo -e "${Black}${On_Cyan} INFO ${Color_Off}${Cyan} Workflow kicked off."
+          if [[ $NAME == "" ]]; then
+            echo -e "${Black}${On_Red} ERROR ${Color_Off}${Cyan} Unable to parse 0 character name."
+            exit 1
+          fi
+          echo -e "${Black}${On_Green} SUCCESS ${Color_Off}${Cyan} Input acquired."
+          echo -e "${Cyan} $NAME"
+          echo "name-length=$( echo -n "$NAME" | wc -c )" >> "$GITHUB_OUTPUT"
+
+      - if: ${{ inputs.secret-message == True }}
+        name: Secret Message
+        env:
+          SECRET_MESSAGE: ${{ secrets.SECRET_MESSAGE }}
+        run: |
+          echo -e "${Black}${On_Yellow} WARNING ${Color_Off}${Cyan} Secret Message:"
+          echo -e "${Yellow} ${SECRET_MESSAGE}"
