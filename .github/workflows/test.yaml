@@ -33,6 +33,9 @@ jobs:
           coverage report -m
 
   comment-checklist:
+    runs-on: ubuntu-latest
+    name: Comment on PR
+
     needs: test
     env: 
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
