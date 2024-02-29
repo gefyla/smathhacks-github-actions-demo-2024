@@ -6,7 +6,6 @@ repos:
       - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
-      - id: yamllint
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: "v0.34.0"
     hooks:
@@ -17,3 +16,7 @@ repos:
     rev: v1.4.0
     hooks:
       - id: doctoc
+  - repo: https://github.com/adrienverge/yamllint.git
+    sha: v1.10.0
+    hooks:
+      - id: yamllint

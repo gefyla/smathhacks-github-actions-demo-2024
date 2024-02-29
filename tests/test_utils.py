@@ -14,7 +14,7 @@ def test_addition():
 def test_subtraction():
     a = 10
     b = 5
-    assert addition(a, b) == 5
+    assert subtraction(a, b) == 5
     
 def test_equivalence():
     a = 10
