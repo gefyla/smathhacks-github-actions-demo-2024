@@ -44,4 +44,10 @@ jobs:
       - name: Comment on PR
         if: ${{ github.ref != 'refs/heads/main' }}
         run: |
-          curl -s -H "Authorization: token ${GITHUB_TOKEN}" -X POST ${{ github.event.pull_request.comments_url }} -d "{\"body\":\" # :robot: smathhacks-github-actions-demo-2024 tests are passing\n:four_leaf_clover: If all checks are passing, time to request reviews.\"}"
+          curl --location --request POST '${{ github.event.pull_request.comments_url }}' \
+            --header "Accept: application/vnd.github.v3+json" \
+            --header "Authorization: Bearer $GITHUB_TOKEN" \
+            --header "Content-Type: application/json" \
+            --data-raw "{
+              \"body\":\" # :robot: smathhacks-github-actions-demo-2024 tests are passing\n:four_leaf_clover: If all checks are passing, time to request reviews.\"
+            }"
