@@ -28,16 +28,7 @@ jobs:
       - name: Run pre-commit
         run: |
           pre-commit run --all-files
-      # - name: flake8 lint
-      #   uses: py-actions/flake8@v2
-      # - name: pylint
-      #   run: |
-      #     pylint src test
-      # - name: actionlint
-      #   uses: docker://rhysd/actionlint:latest
-      #   with:
-      #     args: -color
-      # - name: doctoc
-
-      # - uses: articulate/actions-markdownlint@v1
-      #   name: Markdown Lint
+      - name: actionlint
+        uses: docker://rhysd/actionlint:latest
+        with:
+          args: -color
