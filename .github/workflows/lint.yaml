@@ -1,6 +1,7 @@
+---
 name: Lint
 
-on:
+on:  # yamllint disable-line rule:truthy
   push:
     branches:
       - main
@@ -27,7 +28,3 @@ jobs:
       - name: Run pre-commit
         run: |
           pre-commit run --all-files
-      - name: actionlint
-        uses: docker://rhysd/actionlint:latest
-        with:
-          args: -color

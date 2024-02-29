@@ -1,7 +1,7 @@
 ---
 name: Test
 
-on:
+on:  # yamllint disable-line rule:truthy
   push:
     branches:
       - main
@@ -37,7 +37,7 @@ jobs:
     name: Comment on PR
 
     needs: test
-    env: 
+    env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:

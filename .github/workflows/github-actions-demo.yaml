@@ -1,8 +1,8 @@
 ---
-# Found at: https://docs.github.com/en/actions/quickstart#creating-your-first-workflow 
+# Found at: https://docs.github.com/en/actions/quickstart#creating-your-first-workflow
 name: Preflight Actions Demo
 
-on: 
+on:  # yamllint disable-line rule:truthy
   push:
     branches:
       - main
