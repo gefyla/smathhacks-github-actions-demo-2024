@@ -1,9 +1,27 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [GitHub Actions & CI/CD Pipelines Demo](#github-actions--cicd-pipelines-demo)
+  - [CI/CD Badges](#cicd-badges)
+  - [Workflows](#workflows)
+    - [Github Actions Demo Workflows](#github-actions-demo-workflows)
+    - [Input Output Workflow](#input-output-workflow)
+      - [Inputs](#inputs)
+      - [Outputs](#outputs)
+    - [Lint Workflow](#lint-workflow)
+    - [Test Workflow](#test-workflow)
+  - [More Resources](#more-resources)
+  - [Connect](#connect)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 # GitHub Actions & CI/CD Pipelines Demo
 
 Repository for showing what GitHub Actions can do.
 
-March 3, 2024 @ SmathHacks  
+March 3, 2024 @ SmathHacks
 
 By: Geoffrey Fylak
 
@@ -51,12 +69,7 @@ A side piece to show how GitHub Actions can:
 
 ### Lint Workflow
 
-A workflow that makes sure the code is clean by running:
-- pylint
-- flake8
-- doctoc
-- actionlint
-- markdownlint
+A workflow that makes sure the code is clean.
 
 ### Test Workflow
 

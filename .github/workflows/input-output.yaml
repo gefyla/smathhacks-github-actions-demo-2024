@@ -1,7 +1,7 @@
 ---
 name: Input -> Output
 
-on:
+on:  # yamllint disable-line rule:truthy
   workflow_dispatch:
     inputs:
       name:
@@ -31,7 +31,7 @@ env:
   On_Green: '\033[42m'
   On_Yellow: '\033[43m'
   On_Cyan: '\033[46m'
-  
+
 jobs:
   input-output-job:
     name: Input -> Output
@@ -55,7 +55,7 @@ jobs:
           echo -e "${Cyan} $NAME"
           echo "name-length=$( echo -n "$NAME" | wc -c )" >> "$GITHUB_OUTPUT"
 
-      - if: ${{ inputs.secret-message == True }}
+      - if: ${{ inputs.secret-message }}
         name: Secret Message
         env:
           SECRET_MESSAGE: ${{ secrets.SECRET_MESSAGE }}

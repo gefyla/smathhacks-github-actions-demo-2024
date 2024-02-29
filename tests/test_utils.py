@@ -10,12 +10,12 @@ def test_addition():
     a = 10
     b = 5
     assert addition(a, b) == 15
-    
+
 def test_subtraction():
     a = 10
     b = 5
-    assert addition(a, b) == 5
-    
+    assert subtraction(a, b) == 5
+
 def test_equivalence():
     a = 10
     b = 5
