@@ -50,6 +50,8 @@ jobs:
         name: Secret Message
         env:
           SECRET_MESSAGE: ${{ secrets.SECRET_MESSAGE }}
+          ENV_MESSAGE: ${{ env.ENV_MESSAGE }}
         run: |
           echo -e "${Black}${On_Yellow} WARNING ${Color_Off}${Cyan} Secret Message:"
-          echo -e "${Yellow} ${SECRET_MESSAGE}"
+          echo -e "${Yellow} GitHub Secret: ${SECRET_MESSAGE}"
+          echo -e "${Yellow} GitHub ENV: ${ENV_MESSAGE}"
