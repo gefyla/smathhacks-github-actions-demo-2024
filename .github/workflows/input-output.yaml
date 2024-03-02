@@ -15,11 +15,6 @@ on:  # yamllint disable-line rule:truthy
         description: >-
           I wonder what enabling this does...
 
-    outputs:
-      name-char-length:
-        description: Character length of name input.
-        value: ${{ jobs.input-output-job.outputs }}
-
 env:
   Color_Off: '\033[0m'
   Black: '\033[0;30m'
@@ -37,9 +32,6 @@ jobs:
     name: Input -> Output
     runs-on: ubuntu-latest
 
-    outputs:
-      name-length: ${{ steps.name-parsing.outputs.name-length }}
-
     steps:
       - name: Print Name
         id: name-parsing
@@ -53,12 +45,10 @@ jobs:
           fi
           echo -e "${Black}${On_Green} SUCCESS ${Color_Off}${Cyan} Input acquired."
           echo -e "${Cyan} $NAME"
-          echo "name-length=$( echo -n "$NAME" | wc -c )" >> "$GITHUB_OUTPUT"
 
       - if: ${{ inputs.secret-message }}
         name: Secret Message
-        env:
-          SECRET_MESSAGE: ${{ secrets.SECRET_MESSAGE }}
         run: |
           echo -e "${Black}${On_Yellow} WARNING ${Color_Off}${Cyan} Secret Message:"
-          echo -e "${Yellow} ${SECRET_MESSAGE}"
+          echo -e "${Yellow} Don't forget to sign out on LiveSafe."
+          echo -e "${Yellow} GitHub Secret: ${{ secrets.SECRET_MESSAGE }}"
