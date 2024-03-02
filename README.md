@@ -8,7 +8,6 @@
     - [Github Actions Demo Workflows](#github-actions-demo-workflows)
     - [Input Output Workflow](#input-output-workflow)
       - [Inputs](#inputs)
-      - [Outputs](#outputs)
     - [Lint Workflow](#lint-workflow)
     - [Test Workflow](#test-workflow)
   - [More Resources](#more-resources)
