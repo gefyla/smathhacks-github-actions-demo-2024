@@ -8,7 +8,6 @@
     - [Github Actions Demo Workflows](#github-actions-demo-workflows)
     - [Input Output Workflow](#input-output-workflow)
       - [Inputs](#inputs)
-      - [Outputs](#outputs)
     - [Lint Workflow](#lint-workflow)
     - [Test Workflow](#test-workflow)
   - [More Resources](#more-resources)
@@ -71,6 +70,7 @@ A workflow that makes sure tests continue passing so that the code base does not
 - [GitHub Markdown Emojis](https://gist.github.com/rxaviers/7360908)
 - [Colorized Bash Echo](https://gist.github.com/stevewithington/b1b620b5bc9252e2c32e2cad35efbf83)
 - [auto-doc](https://github.com/tj-actions/auto-doc)
+- [doctoc](https://github.com/thlorenz/doctoc)
 
 
 ## Connect
