@@ -3,12 +3,7 @@
 name: Preflight Actions Demo
 
 on:  # yamllint disable-line rule:truthy
-  push:
-    branches:
-      - main
-  pull-request:
-    branches:
-      - main
+  workflow_dispatch
 
 jobs:
   preflight-actions-demo:
