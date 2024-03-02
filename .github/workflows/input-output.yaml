@@ -26,6 +26,8 @@ env:
   On_Green: '\033[42m'
   On_Yellow: '\033[43m'
   On_Cyan: '\033[46m'
+  Secret_Message: ${{ secrets.SECRET_MESSAGE }}
+  Env_Message: ${{ env.ENV_MESSAGE }}
 
 jobs:
   input-output-job:
@@ -48,10 +50,8 @@ jobs:
 
       - if: ${{ inputs.secret-message }}
         name: Secret Message
-        env:
-          SECRET_MESSAGE: ${{ secrets.SECRET_MESSAGE }}
-          ENV_MESSAGE: ${{ env.ENV_MESSAGE }}
+        shell: bash
         run: |
           echo -e "${Black}${On_Yellow} WARNING ${Color_Off}${Cyan} Secret Message:"
-          echo -e "${Yellow} GitHub Secret: ${SECRET_MESSAGE}"
-          echo -e "${Yellow} GitHub ENV: ${ENV_MESSAGE}"
+          echo -e "${Yellow} GitHub Secret: ${Secret_Message}"
+          echo -e "${Yellow} GitHub ENV: ${Env_Message}"
