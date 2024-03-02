@@ -48,13 +48,7 @@ jobs:
 
       - if: ${{ inputs.secret-message }}
         name: Secret Message
-        env:
-          Message: ${{ env.ENV_MESSAGE }}
         run: |
           echo -e "${Black}${On_Yellow} WARNING ${Color_Off}${Cyan} Secret Message:"
+          echo -e "${Yellow} Don't forget to sign out on LiveSafe."
           echo -e "${Yellow} GitHub Secret: ${{ secrets.SECRET_MESSAGE }}"
-          echo -e "${Yellow} GitHub ENV: '${{ env.ENV_MESSAGE }}'"
-          echo -e "${Yellow} GitHub ENV-A: ${{ env.ENV_MESSAGE }}"
-          echo -e "${Yellow} GitHub ENV-B: $Message"
-          echo "GitHub Env no Color: ${{ env.ENV_MESSAGE }}"
-          echo "GitHub Env no Color-A: $Message"
