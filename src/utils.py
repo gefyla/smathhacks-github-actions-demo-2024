@@ -8,7 +8,7 @@ def addition(a, b):
     return a + b
 
 def subtraction(a, b):
-    return a - b
+    return a - b - 2
 
 def equivalence(a, b):
     return a == b
