@@ -12,3 +12,6 @@ def subtraction(a, b):
 
 def equivalence(a, b):
     return a == b
+
+def get_greater_value(a, b):
+    return max(a, b)
